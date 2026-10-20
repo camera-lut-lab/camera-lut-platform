@@ -81,7 +81,7 @@
 2. The client uploads it to the Java API using an authorized upload flow.
 3. Java validates identity, permission, quota, and wallet balance, then reserves credits.
 4. Java calls the internal Python endpoint.
-5. Python validates the image and calls the configured China-region Qwen endpoint.
+5. Python validates the image and sends it to the configured China-region Qwen endpoint for inference. The product should disclose this provider transfer before upload.
 6. Python returns structured scene tags, recommendation rationale, and suggested parameters.
 7. Java records usage and settles or releases reserved credits, then returns the result to the client.
 
