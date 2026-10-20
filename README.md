@@ -38,6 +38,7 @@ This repository contains public architecture notes and an initial Python AI serv
     source .venv/bin/activate
     pip install -r requirements.txt
     cp .env.example .env
+    cd ..
 
 Fill in .env locally with the Model Studio key, China-region endpoint, model name, and a long random internal service token. Never commit .env.
 
@@ -48,7 +49,7 @@ Start from repository root:
     set +a
     uvicorn app.main:app --app-dir python-ai --host 127.0.0.1 --port 8001
 
-The service accepts authenticated internal requests at POST /internal/v1/lut/recommendation and does not store uploaded photos. See python-ai/README.md.
+The service accepts authenticated internal requests at POST /internal/v1/lut/recommendation and does not store uploaded photos. When analysis is requested, the selected image is sent to the configured Qwen provider for inference; disclose this in the product before upload. See python-ai/README.md.
 
 ## Public/private data boundary
 
