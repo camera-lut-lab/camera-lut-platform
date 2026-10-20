@@ -11,6 +11,7 @@ From the repository root:
     source .venv/bin/activate
     pip install -r requirements.txt
     cp .env.example .env
+    cd ..
 
 Edit .env locally:
 
@@ -31,7 +32,7 @@ Start the service from the repository root:
 - GET /healthz
 - POST /internal/v1/lut/recommendation: multipart form with image and optional language; requires Authorization: Bearer <AI_INTERNAL_TOKEN>.
 
-The service keeps the uploaded image in memory for the request and does not write it to disk. The Java API should validate the user and wallet balance before calling this endpoint.
+The service keeps the uploaded image in memory for the request and does not write it to disk. For inference, it forwards the selected image to the configured Qwen provider; the product should disclose this before upload. The Java API should validate the user and wallet balance before calling this endpoint.
 
 ## Local request example
 
